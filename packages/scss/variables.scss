@@ -1,0 +1,31 @@
+//定义基本色
+$shui-color-white: #fff !default;
+
+$shui-color-black: #000 !default;
+
+//灰色
+$shui-color-gray: #ccc !default;
+
+$shui-color-gray-light: #eee !default;
+
+$shui-color-gray-dark: #333 !default;
+
+
+
+//主题色
+$shui-color-primary: #A2D8DD !default;
+
+$shui-color-success:#37db45 !default;
+
+$shui-color-info:#BDBDBD !default;
+
+$shui-color-warning:#FFD700 !default;
+
+$shui-color-danger:#FF4500 !default;
+
+
+$shui-color-list:$shui-color-primary, $shui-color-success, $shui-color-info, $shui-color-warning, $shui-color-danger;
+
+$shui-color-list-map:(primary: $shui-color-primary, success: $shui-color-success, info: $shui-color-info, warning: $shui-color-warning, danger: $shui-color-danger);
+
+//字体大小

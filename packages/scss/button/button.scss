@@ -1,0 +1,121 @@
+@import "../index.scss";
+
+.shui-button {
+  min-width: 64px;
+  height: 32px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //去除背景颜色
+  background-color: transparent;
+  //去除默认样式
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  //去除默认样式
+  -webkit-tap-highlight-color: transparent;
+  //去除默认样式
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  //去除默认样式
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  //去除默认样式
+  -webkit-tap-highlight-color: transparent;
+}
+
+$button-size: (
+  small: (
+    width: 64px,
+    height: 24px,
+  ),
+  middle: (
+    width: 80px,
+    height: 32px,
+  ),
+  large: (
+    width: 96px,
+    height: 40px,
+  ),
+);
+
+@mixin shui-button-style($color) {
+  background-color: $color;
+  color: $shui-color-white;
+  &:hover {
+    background-color: rgba($color: $color, $alpha: 0.6);
+  }
+  &:active {
+    background-color: rgba($color: $color, $alpha: 0.8);
+  }
+  &:focus-visible {
+    background-color: rgba($color: $color, $alpha: 0.8);
+    border-color: $color;
+  }
+}
+
+
+@mixin shui-button-style-plain($color) {
+  background-color: transparent;
+  color: $color;
+  border-color: $color;
+  border-width: 1px;
+  border-style: solid;
+  &:hover {
+    background-color: rgba($color: $color, $alpha: 0.1);
+  }
+  &:active {
+    background-color: rgba($color: $color, $alpha: 0.2);
+  }
+  &:focus-visible {
+    background-color: rgba($color: $color, $alpha: 0.2);
+    border-color: $color;
+  }
+}
+
+
+@each $size, $value in $button-size {
+  .shui-button-size-#{$size} {
+    width: map-get($value, width);
+    height: map-get($value, height);
+  }
+}
+
+.shui-button {
+  background-color: transparent;
+  color: $shui-color-white;
+  transition: all 0.1s ease-in-out;
+}
+
+.shui-button-circle{
+  border-radius: 300px;
+}
+
+.shui-button-default {
+  @include shui-button-style($shui-color-gray-dark);
+}
+
+.shui-button-default-plain {
+  @include shui-button-style-plain($shui-color-gray-dark);
+}
+
+
+@each $name, $color in $shui-color-list-map {
+  .shui-button-#{$name} {
+    @include shui-button-style($color);
+  }
+}
+
+
+@each $name, $color in $shui-color-list-map {
+  .shui-button-#{$name}-plain {
+    @include shui-button-style-plain($color);
+  }
+}
+
