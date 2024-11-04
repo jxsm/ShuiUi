@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 import ShuiUi from '../packages/index';
+import "../packages/scss/root.scss"
 
 
 

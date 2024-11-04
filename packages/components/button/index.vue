@@ -1,5 +1,5 @@
 <template>
-    <button :type="props.nativeType" :disabled="props.disabled" :autofocus="props.autofocus" @click="$emit('click')"
+    <button :type="props.nativeType" :autofocus="props.autofocus" @click="$emit('click')"
         :class="buttonStyle">
         <slot name="icon" v-if="$slots.icon"></slot>
         <slot></slot>
@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+// import ColorJS from "color";
 
 const props = defineProps({
     type: {
@@ -46,6 +47,11 @@ const props = defineProps({
         type: String as () => "button" | "submit" | "reset",
         default: "button",
     },
+    color:{
+        type:String,
+        dfault:""
+    },
+
 });
 
 const emit = defineEmits(["click"]);
@@ -88,8 +94,26 @@ const buttonStyle = computed(() => {
         ...buttonColer.value,
         ...buttonSize.value,
         ...buttonCircle.value,
+        "is-disabled" :props.disabled,
     }
 })
+
+const userColor = computed(() => {
+  
+
+})
+
+
+// const createUserColorClass = (color:string)=>{
+//     const c = ColorJS(props.color);
+//     return{
+        
+//     }
+// }
+
+
+console.log(userColor.value);
+
 </script>
 
 <script lang="ts">
@@ -98,6 +122,26 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 @import "../../scss/button/button.scss";
+
+
+
+// @mixin shui-button-style($color) {
+//   background-color: $color;
+//   color: $shui-color-white;
+//   &:hover {
+//     background-color: rgba($color: $color, $alpha: 0.6);
+//   }
+//   &:active {
+//     background-color: rgba($color: $color, $alpha: 0.8);
+//   }
+//   &:focus-visible {
+//     background-color: rgba($color: $color, $alpha: 0.8);
+//     border-color: $color;
+//   }
+// }
+
+
+
 </style>
