@@ -21,19 +21,6 @@ $shui-color-warning: #ffd700 !default;
 
 $shui-color-danger: #ff4500 !default;
 
-//字体大小
-// $shui-all-color: (
-//   shui-color-white: #fff,
-//   shui-color-black: #000,
-//   shui-color-gray: #ccc,
-//   shui-color-gray-light: #eee,
-//   shui-color-gray-dark: #333,
-//   shui-color-primary: #a2d8dd,
-//   shui-color-success: #37db45,
-//   shui-color-info: #bdbdbd,
-//   shui-color-warning: #ffd700,
-//   shui-color-danger: #ff4500,
-// ) !default;
 
 $shui-color-list-map: (
   primary: $shui-color-primary,
@@ -42,3 +29,26 @@ $shui-color-list-map: (
   warning: $shui-color-warning,
   danger: $shui-color-danger,
 );
+
+
+//字体大小
+$shui-font-size-base: 14px !default;
+
+$shui-font-size-small: 12px !default;
+
+$shui-font-size-large: 16px !default;
+
+$shui-font-size-h1: 36px !default;
+
+$shui-font-size-h2: 30px !default;
+
+$shui-font-size-h3: 24px !default;
+
+$shui-font-size-h4: 18px !default;
+
+$shui-font-size-h5: 14px !default;
+
+$shui-font-size-h6: 12px !default;
+
+//字体颜色
+$shui-font-color-base: $shui-color-black !default;

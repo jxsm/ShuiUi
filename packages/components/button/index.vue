@@ -1,6 +1,5 @@
 <template>
-    <button :type="props.nativeType" :autofocus="props.autofocus" @click="$emit('click')"
-        :class="buttonStyle">
+    <button :type="props.nativeType" :autofocus="props.autofocus" @click="$emit('click')" :class="buttonStyle">
         <slot name="icon" v-if="$slots.icon"></slot>
         <slot></slot>
 
@@ -9,22 +8,17 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { ButtonSize, ButtonType ,NativeType} from "../../types/button/button";
+
 // import ColorJS from "color";
 
 const props = defineProps({
     type: {
-        type: String as () =>
-            | "default"
-            | "primary"
-            | "success"
-            | "warning"
-            | "danger"
-            | "info"
-            | "",
+        type: String as () => ButtonType,
         default: "default",
     },
     size: {
-        type: String as () => "small" | "medium" | "large" | "",
+        type: String as () => ButtonSize,
         default: "medium",
     },
     plain: {
@@ -44,12 +38,12 @@ const props = defineProps({
         default: false,
     },
     nativeType: {
-        type: String as () => "button" | "submit" | "reset",
+        type: String as () => NativeType,
         default: "button",
     },
-    color:{
-        type:String,
-        dfault:""
+    color: {
+        type: String,
+        dfault: ""
     },
 
 });
@@ -94,12 +88,12 @@ const buttonStyle = computed(() => {
         ...buttonColer.value,
         ...buttonSize.value,
         ...buttonCircle.value,
-        "is-disabled" :props.disabled,
+        "is-disabled": props.disabled,
     }
 })
 
 const userColor = computed(() => {
-  
+
 
 })
 
@@ -107,7 +101,7 @@ const userColor = computed(() => {
 // const createUserColorClass = (color:string)=>{
 //     const c = ColorJS(props.color);
 //     return{
-        
+
 //     }
 // }
 
@@ -122,26 +116,6 @@ export default {
 };
 </script>
 
-<style  lang="scss">
+<style lang="scss">
 @import "../../scss/button/button.scss";
-
-
-
-// @mixin shui-button-style($color) {
-//   background-color: $color;
-//   color: $shui-color-white;
-//   &:hover {
-//     background-color: rgba($color: $color, $alpha: 0.6);
-//   }
-//   &:active {
-//     background-color: rgba($color: $color, $alpha: 0.8);
-//   }
-//   &:focus-visible {
-//     background-color: rgba($color: $color, $alpha: 0.8);
-//     border-color: $color;
-//   }
-// }
-
-
-
 </style>
